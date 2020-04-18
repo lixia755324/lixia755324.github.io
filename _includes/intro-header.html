@@ -7,11 +7,7 @@
 <style type="text/css">
     header.intro-header{
         position: relative;
-        {% if page.header-img-src %}
-        background-image: url('{{ page.header-img-src }}');
-        {% else %}
-        background-image: url('{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}');
-        {% endif %}
+        background-image: url('{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{% if site.header-img-src %}{{site.header-img-src}}{% else %}{{ site.header-img }}{% endif %}{% endif %}');
         background: {{ page.header-bg-css }};
     }
 
